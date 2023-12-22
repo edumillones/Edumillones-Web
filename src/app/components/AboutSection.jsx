@@ -50,7 +50,7 @@ const AboutSection = () => {
         <div className="mt-4 md:mt-0 text-left flex flex-col h-full">
           <h2 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary-500 to-secondary-700 mb-4">About me</h2>
           <p className="text-base lg:text-lg">
-            Como desarrollador web, domino tecnologías clave como HTML, CSS, JavaScript, React.jsx
+            Como desarrollador web, domino tecnologias claves como HTML, CSS, JavaScript, React.jsx
             y Liquid. Mi experiencia se extiende a entornos especializados como Shopify y WordPress.
             He creado aplicaciones web interactivas y receptivas, con un enfoque especial en el diseño UI/UX.
             Cada proyecto que emprendo es único y personalizado, estoy comprometido con la entrega de
