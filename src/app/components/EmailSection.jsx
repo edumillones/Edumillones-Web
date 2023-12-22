@@ -69,7 +69,7 @@ const EmailSection = () => {
   </Link>
 </div>
       </div>
-      <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfOzrpbMkY_5KqK66HVl-fUrfweXX9JAJGp_L6xgFv0g2iZUA/viewform?embedded=true" width="100%" height="1300" frameborder="0" marginheight="0" marginwidth="0" scrolling="no" border="0">Cargando…</iframe>
+      <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfOzrpbMkY_5KqK66HVl-fUrfweXX9JAJGp_L6xgFv0g2iZUA/viewform?embedded=true" width="100%" height="1420" frameborder="0" marginheight="0" marginwidth="0" scrolling="no" border="0">Cargando…</iframe>
     </section>
   );
 };
