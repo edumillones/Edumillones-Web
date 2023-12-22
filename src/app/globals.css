@@ -66,3 +66,16 @@ body {
   /* Agrega estilos adicionales según sea necesario para otros elementos en tu aplicación */
 }
 
+/* Agrega estas reglas para cambiar el color del texto en el modo oscuro */
+@media (prefers-color-scheme: dark) {
+  body {
+    @apply text-white;
+  }
+}
+
+/* También puedes usar directamente las clases de Tailwind */
+@media (prefers-color-scheme: dark) {
+  body {
+    @apply dark:text-white;
+  }
+}
