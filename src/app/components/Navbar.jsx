@@ -76,7 +76,7 @@ const Navbar = () => {
         </div>
         {/* Botón de WhatsApp */}
         <a
-  href="https://wa.me/TUNUMEROTELEFONICO"
+  href="https://wa.me/+51942538945"
   target="_blank"
   rel="noopener noreferrer"
   className="text-white hover:text-gray-300 flex items-center"
