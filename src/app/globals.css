@@ -35,47 +35,10 @@ body {
 .gradient-section {
   background: linear-gradient(to bottom, #4B5563, #1F2937);
 }
-/* CSS */
-.whatsapp-button {
-  background-color: #25d366; /* Cambia el color según tus preferencias */
-  padding: 8px 12px;
-  border-radius: 4px;
-  transition: background-color 0.3s ease-in-out;
-}
 
-.whatsapp-button:hover {
-  background-color: #128c7e; /* Cambia el color del hover según tus preferencias */
-}
-
-/* Tailwind CSS */
-.whatsapp-button {
-  @apply bg-green-500 text-white px-4 py-2 rounded transition-all duration-300;
-}
-
-.whatsapp-button:hover {
-  @apply bg-green-600;
-}
-/* styles.css (o tu archivo de estilos global) */
-@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
-  /* Estilos específicos para el tema oscuro de Samsung */
-  body {
-    background-color: #000; /* Establece el fondo en negro o el color deseado */
-    color: #fff; /* Establece el color del texto en blanco o el color deseado */
-  }
-
-  /* Agrega estilos adicionales según sea necesario para otros elementos en tu aplicación */
-}
-
-/* Agrega estas reglas para cambiar el color del texto en el modo oscuro */
 @media (prefers-color-scheme: dark) {
   body {
     @apply text-white;
   }
 }
 
-/* También puedes usar directamente las clases de Tailwind */
-@media (prefers-color-scheme: dark) {
-  body {
-    @apply dark:text-white;
-  }
-}
