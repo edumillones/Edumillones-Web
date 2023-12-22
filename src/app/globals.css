@@ -55,3 +55,14 @@ body {
 .whatsapp-button:hover {
   @apply bg-green-600;
 }
+/* styles.css (o tu archivo de estilos global) */
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  /* Estilos específicos para el tema oscuro de Samsung */
+  body {
+    background-color: #000; /* Establece el fondo en negro o el color deseado */
+    color: #fff; /* Establece el color del texto en blanco o el color deseado */
+  }
+
+  /* Agrega estilos adicionales según sea necesario para otros elementos en tu aplicación */
+}
+
