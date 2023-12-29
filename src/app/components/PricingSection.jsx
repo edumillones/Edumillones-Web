@@ -19,7 +19,7 @@ const PricingSection = () => {
               <h3 className="text-2xl font-bold text-center text-white dark:text-white">
                 Plan Starter
               </h3>
-              <div className="mt-4 text-center text-gray-400 dark:text-gray-500">
+              <div className="mt-4 text-center text-gray-400">
                 <span className="text-4xl font-bold text-gray-300">360 PEN</span> / único pago
               </div>
               <ul className="mt-4 space-y-2">
