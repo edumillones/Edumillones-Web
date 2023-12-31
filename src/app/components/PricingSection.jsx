@@ -68,7 +68,7 @@ const PricingSection = () => {
               </ul>
             </div>
             <div className="mt-6">
-              <a href="#contact" className="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-white text-gray-800 hover:bg-gray-100 h-10 px-4 py-2 w-full">
+              <a href="https://docs.google.com/forms/d/e/1FAIpQLSfOzrpbMkY_5KqK66HVl-fUrfweXX9JAJGp_L6xgFv0g2iZUA/viewform" className="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-white text-gray-800 hover:bg-gray-100 h-10 px-4 py-2 w-full">
                 Comenzar
               </a>
               
@@ -138,7 +138,7 @@ const PricingSection = () => {
               </ul>
             </div>
             <div className="mt-6">
-              <a href="#contact" className="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-white text-white hover:bg-gray-100 h-10 px-4 py-2 w-full bg-gradient-to-r from-pink-500 to-purple-500">
+              <a href="https://docs.google.com/forms/d/e/1FAIpQLSfOzrpbMkY_5KqK66HVl-fUrfweXX9JAJGp_L6xgFv0g2iZUA/viewform" className="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-white text-white hover:bg-gray-100 h-10 px-4 py-2 w-full bg-gradient-to-r from-pink-500 to-purple-500">
                 Comenzar
               </a>
             </div>
@@ -198,7 +198,7 @@ const PricingSection = () => {
               </ul>
             </div>
             <div className="mt-6">
-              <a href="#contact" className="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-white text-gray-800 hover:bg-gray-100 h-10 px-4 py-2 w-full">
+              <a href="https://docs.google.com/forms/d/e/1FAIpQLSfOzrpbMkY_5KqK66HVl-fUrfweXX9JAJGp_L6xgFv0g2iZUA/viewform" className="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-white text-gray-800 hover:bg-gray-100 h-10 px-4 py-2 w-full">
                 Comenzar
               </a>
             </div>
