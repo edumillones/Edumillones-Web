@@ -19,10 +19,10 @@ const PricingSection = () => {
               <h3 className="text-2xl font-bold text-center text-white dark:text-white">
                 Plan Starter
               </h3>
-              <div className="mt-4 text-center text-gray-400">
+              <div className="mt-4 text-center text-gray-400 dark:text-gray-500">
                 <span className="text-4xl font-bold text-gray-300">360 PEN</span> / único pago
               </div>
-              <ul className="mt-4 space-y-2">
+              <ul className="mt-4 space-y-2 text-white">
                 <li className="flex items-center">
                   <div className="icon-container bg-green-500 rounded-full mr-2 p-1">
                     <FaCheck className="text-white text-lg dark:text-white" />
@@ -86,7 +86,7 @@ const PricingSection = () => {
               <div className="mt-4 text-center text-gray-400 dark:text-gray-500">
                 <span className="text-4xl font-bold text-gray-300">500 PEN</span> / único pago
               </div>
-              <ul className="mt-4 space-y-2">
+              <ul className="mt-4 space-y-2 text-white">
                 <li className="flex items-center">
                   <div className="icon-container bg-yellow-500 rounded-full mr-2 p-1">
                     <FaStar className="text-white text-lg dark:text-white" />
@@ -152,7 +152,7 @@ const PricingSection = () => {
               <div className="mt-4 text-center text-gray-400 dark:text-gray-500">
                 <span className="text-4xl font-bold text-gray-300">1300 PEN</span> / único pago
               </div>
-              <ul className="mt-4 space-y-2">
+              <ul className="mt-4 space-y-2 text-white">
                 <li className="flex items-center">
                 <div className="icon-container bg-yellow-500 rounded-full mr-2 p-1">
                     <FaStar className="text-white text-lg dark:text-white" />
