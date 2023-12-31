@@ -22,46 +22,46 @@ const PricingSection = () => {
               <div className="mt-4 text-center text-gray-400 dark:text-gray-500">
                 <span className="text-4xl font-bold text-gray-300">360 PEN</span> / único pago
               </div>
-              <ul className="mt-4 space-y-2 text-white">
+              <ul className="mt-4 space-y-2 text-gray-100">
                 <li className="flex items-center">
                   <div className="icon-container bg-green-500 rounded-full mr-2 p-1">
-                    <FaCheck className="text-white text-lg dark:text-white" />
+                    <FaCheck className="text-gray-100 text-lg dark:text-gray-100" />
                   </div>
                   Diseño y configuración de Inicio, Catálogo, Contacto, Producto y Carrito de Compras.
                 </li>
                 <li className="flex items-center">
                   <div className="icon-container bg-green-500 rounded-full mr-2 p-1">
-                    <FaCheck className="text-white text-lg dark:text-white" />
+                    <FaCheck className="text-gray-100 text-lg dark:text-gray-100" />
                   </div>
                   Diseño responsive (PC, celular y tablet)
                 </li>
                 <li className="flex items-center">
                   <div className="icon-container bg-green-500 rounded-full mr-2 p-1">
-                    <FaCheck className="text-white text-lg dark:text-white" />
+                    <FaCheck className="text-gray-100 text-lg dark:text-gray-100" />
                   </div>
                   Pasarela de pago integrada 100% segura.
                 </li>
                 <li className="flex items-center">
                   <div className="icon-container bg-green-500 rounded-full mr-2 p-1">
-                    <FaCheck className="text-white text-lg dark:text-white" />
+                    <FaCheck className="text-gray-100 text-lg dark:text-gray-100" />
                   </div>
                   Manejo de Inventario, Gestión de hasta 50 productos.
                 </li>
                 <li className="flex items-center">
                   <div className="icon-container bg-green-500 rounded-full mr-2 p-1">
-                    <FaCheck className="text-white text-lg dark:text-white" />
+                    <FaCheck className="text-gray-100 text-lg dark:text-gray-100" />
                   </div>
                   Envíos nacionales, configuración de productos para envíos dentro del país.
                 </li>
                 <li className="flex items-center">
                   <div className="icon-container bg-green-500 rounded-full mr-2 p-1">
-                    <FaCheck className="text-white text-lg dark:text-white" />
+                    <FaCheck className="text-gray-100 text-lg dark:text-gray-100" />
                   </div>
                   Indexado en Google; optimización inicial para motores de búsqueda.
                 </li>
                 <li className="flex items-center">
                 <div className="icon-container bg-yellow-500 rounded-full mr-2 p-1">
-                    <FaStar className="text-white text-lg dark:text-white" />
+                    <FaStar className="text-gray-100 text-lg dark:text-gray-100" />
                   </div>
                   Entrega en 5-6 días habiles, previa evaluación.
                 </li>
@@ -86,52 +86,52 @@ const PricingSection = () => {
               <div className="mt-4 text-center text-gray-400 dark:text-gray-500">
                 <span className="text-4xl font-bold text-gray-300">500 PEN</span> / único pago
               </div>
-              <ul className="mt-4 space-y-2 text-white">
+              <ul className="mt-4 space-y-2 text-gray-100">
                 <li className="flex items-center">
                   <div className="icon-container bg-yellow-500 rounded-full mr-2 p-1">
-                    <FaStar className="text-white text-lg dark:text-white" />
+                    <FaStar className="text-gray-100 text-lg dark:text-gray-100" />
                   </div>
                   Incluye todas las características del Plan Starter y añade:
                 </li>
                 <li className="flex items-center">
                   <div className="icon-container bg-green-500 rounded-full mr-2 p-1">
-                    <FaCheck className="text-white text-lg dark:text-white" />
+                    <FaCheck className="text-gray-100 text-lg dark:text-gray-100" />
                   </div>
                   Manejo de Inventario ampliado, Gestión de hasta 100 productos, cada producto con variaciones (tamaño, color, tipo).
                 </li>
                 <li className="flex items-center">
                   <div className="icon-container bg-green-500 rounded-full mr-2 p-1">
-                    <FaCheck className="text-white text-lg dark:text-white" />
+                    <FaCheck className="text-gray-100 text-lg dark:text-gray-100" />
                   </div>
                   Páginas Principales Personalizadas, Diseño y configuración de Inicio, Catálogo, Contacto, Producto y Carrito de Compras.
                 </li>
                 <li className="flex items-center">
                   <div className="icon-container bg-green-500 rounded-full mr-2 p-1">
-                    <FaCheck className="text-white text-lg dark:text-white" />
+                    <FaCheck className="text-gray-100 text-lg dark:text-gray-100" />
                   </div>
                   Envíos Internacionales: Configuración para envíos internacionales.
                 </li>
                 <li className="flex items-center">
                   <div className="icon-container bg-green-500 rounded-full mr-2 p-1">
-                    <FaCheck className="text-white text-lg dark:text-white" />
+                    <FaCheck className="text-gray-100 text-lg dark:text-gray-100" />
                   </div>
                   Funcionalidades Adicionales: Sistema de reseñas de productos, Integración de monedas extranjeras dentro de la pasarela de pagos.
                 </li>
                 <li className="flex items-center">
                   <div className="icon-container bg-green-500 rounded-full mr-2 p-1">
-                    <FaCheck className="text-white text-lg dark:text-white" />
+                    <FaCheck className="text-gray-100 text-lg dark:text-gray-100" />
                   </div>
                   Funcionalidades de Marketing: Integración con redes sociales y blog integrado.
                 </li>
                 <li className="flex items-center">
                   <div className="icon-container bg-green-500 rounded-full mr-2 p-1">
-                    <FaCheck className="text-white text-lg dark:text-white" />
+                    <FaCheck className="text-gray-100 text-lg dark:text-gray-100" />
                   </div>
                   SEO Mejorado: Optimización SEO intermedia.
                 </li>
                 <li className="flex items-center">
                 <div className="icon-container bg-yellow-500 rounded-full mr-2 p-1">
-                    <FaStar className="text-white text-lg dark:text-white" />
+                    <FaStar className="text-gray-100 text-lg dark:text-gray-100" />
                   </div>
                   Entrega en 5-6 días habiles, previa evaluación.
                 </li>
@@ -148,50 +148,50 @@ const PricingSection = () => {
             <div>
               <h3 className="text-2xl font-bold text-center text-white">
                 Plan Premium
-              </h3>
+              </h3> 
               <div className="mt-4 text-center text-gray-400 dark:text-gray-500">
                 <span className="text-4xl font-bold text-gray-300">1300 PEN</span> / único pago
               </div>
-              <ul className="mt-4 space-y-2 text-white">
+              <ul className="mt-4 space-y-2 text-gray-100">
                 <li className="flex items-center">
                 <div className="icon-container bg-yellow-500 rounded-full mr-2 p-1">
-                    <FaStar className="text-white text-lg dark:text-white" />
+                    <FaStar className="text-gray-100 text-lg dark:text-gray-100" />
                   </div>
                   Incluye todas las características del Plan Business y añade:
                 </li>
                 <li className="flex items-center">
                   <div className="icon-container bg-green-500 rounded-full mr-2 p-1">
-                    <FaCheck className="text-white text-lg dark:text-white" />
+                    <FaCheck className="text-gray-100 text-lg dark:text-gray-100" />
                   </div>
                   Posicionamiento de Élite en Google; optimización avanzada para destacar entre los primeros motores de búsqueda.
                 </li>
                 <li className="flex items-center">
                   <div className="icon-container bg-green-500 rounded-full mr-2 p-1">
-                    <FaCheck className="text-white text-lg dark:text-white" />
+                    <FaCheck className="text-gray-100 text-lg dark:text-gray-100" />
                   </div>
                   Soporte y Consultoría VIP: Asesoría y soporte técnico avanzado para una experiencia sin preocupaciones.
                 </li>
                 <li className="flex items-center">
                   <div className="icon-container bg-green-500 rounded-full mr-2 p-1">
-                    <FaCheck className="text-white text-lg dark:text-white" />
+                    <FaCheck className="text-gray-100 text-lg dark:text-gray-100" />
                   </div>
                   Manejo de Inventario Ampliado: Gestión de hasta 500 productos, cada producto con variaciones detalladas (tamaño, color, tipo).
                 </li>
                 <li className="flex items-center">
                   <div className="icon-container bg-green-500 rounded-full mr-2 p-1">
-                    <FaCheck className="text-white text-lg dark:text-white" />
+                    <FaCheck className="text-gray-100 text-lg dark:text-gray-100" />
                   </div>
                   Diseño Exclusivo y Programación Avanzada: Pop-ups, ventanas emergentes, banners interactivos, video banners, ¡una experiencia visual impactante!
                 </li>
                 <li className="flex items-center">
                   <div className="icon-container bg-green-500 rounded-full mr-2 p-1">
-                    <FaCheck className="text-white text-lg dark:text-white" />
+                    <FaCheck className="text-gray-100 text-lg dark:text-gray-100" />
                   </div>
                   Análisis Profundo de Datos: Descubre tus productos más vendidos, realiza un seguimiento de las visitas en tiempo real con ubicación geográfica, identifica tendencias de compra, y más.
                 </li>
                 <li className="flex items-center">
                 <div className="icon-container bg-yellow-500 rounded-full mr-2 p-1">
-                    <FaStar className="text-white text-lg dark:text-white" />
+                    <FaStar className="text-gray-100 text-lg dark:text-gray-100" />
                   </div>
                   Entrega estimada previa evaluación, adaptada a tus necesidades específicas.
                 </li>
