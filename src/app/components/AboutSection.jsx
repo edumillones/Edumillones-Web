@@ -28,6 +28,7 @@ const TAB_DATA = [
         <li>Equipado con habilidades en componentes de interfaz de usuario de escritorio (Winforms y WPF), API de archivos de Office y PDF, componentes de interfaz de usuario de JavaScript y herramientas de desarrollo de interfaz de usuario móvil para crear soluciones personalizadas y escalables.</li>
         <li>Especializado en HTML, CSS y JavaScript, así como en el desarrollo de aplicaciones web interactivas.</li>
         <li>Escuela de Gestión Vinculate. Habilidades para liderar proyectos de desarrollo de software de manera ágil y eficiente.</li>
+        <li>Skill Centro de Capacitación, Curso de Actualización en Python Fundamentals.</li>
         </ul>
     ),
   },
@@ -70,6 +71,13 @@ const AboutSection = () => {
               {" "}
               Featured{" "}
             </TabButton>
+            <a
+            href="public/Eduardo_Millones_Vasquez_CV.pdf"
+            download="Eduardo_Millones_Vasquez_CV.pdf"
+            className="ml-4 text-white bg-primary-500 py-2 px-4 rounded hover:bg-primary-700"
+          >
+            Download CV
+          </a>
           </div>
           <div className="mt-8">
             {TAB_DATA.find((t) => t.id === tab).content}
@@ -78,6 +86,7 @@ const AboutSection = () => {
       </div>
     </section>
   );
+  
 };
 
 export default AboutSection;
