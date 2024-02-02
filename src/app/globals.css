@@ -35,7 +35,11 @@ body {
 .gradient-section {
   background: linear-gradient(to bottom, #4B5563, #1F2937);
 }
-
+@media (max-width: 640px) {
+  body {
+    @apply sm:w-full;
+  }
+}
 @media (prefers-color-scheme: dark) {
   body {
     @apply text-white;
