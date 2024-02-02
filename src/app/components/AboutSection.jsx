@@ -72,7 +72,7 @@ const AboutSection = () => {
               Featured{" "}
             </TabButton>
             <a
-            href="public/Eduardo_Millones_Vasquez_CV.pdf"
+            href="https://raw.githubusercontent.com/edumillones/Designify-Web/main/public/Eduardo_Millones_Vasquez_CV.pdf"
             download="Eduardo_Millones_Vasquez_CV.pdf"
             className="ml-4 text-white bg-primary-500 py-2 px-4 rounded hover:bg-primary-700"
           >
