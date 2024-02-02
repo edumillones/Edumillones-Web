@@ -10,7 +10,7 @@ const TAB_DATA = [
     content: (
       <ul className="list-disc pl-2">
         <li>Desarrollo de aplicaciones para Windows, Web y móviles</li>
-        <li>PHP</li>
+        <li>Python</li>
         <li>HTML</li>
         <li>CSS</li>
         <li>JavaScript</li>
@@ -50,12 +50,10 @@ const AboutSection = () => {
         <div className="mt-4 md:mt-0 text-left flex flex-col h-full">
           <h2 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary-500 to-secondary-700 mb-4">About me</h2>
           <p className="text-base lg:text-lg">
-            Como desarrollador web, domino tecnologias claves como HTML, CSS, JavaScript, React.jsx
-            y Liquid. Mi experiencia se extiende a entornos especializados como Shopify y WordPress.
-            He creado aplicaciones web interactivas y receptivas, con un enfoque especial en el diseño UI/UX.
-            Cada proyecto que emprendo es único y personalizado, estoy comprometido con la entrega de
-            soluciones atractivas y funcionales. Siempre aprendiendo, me apasiona ampliar mis habilidades
-            para estar a la vanguardia. 
+            ¡Hola! Soy Eduardo Millones, un apasionado desarrollador con experiencia en la 
+            creación de aplicaciones web y de escritorio. Cada proyecto que emprendo es único y 
+            personalizado para satisfacer tus necesidades específicas. Mi compromiso es ofrecer
+            soluciones atractivas y altamente funcionales que superen tus expectativas.
           </p>
           <div className="flex flex-row justify-start mt-8">
             <TabButton
