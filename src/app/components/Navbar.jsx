@@ -16,10 +16,6 @@ const navLinks = [
     path: "#projects",
   },
   {
-    title: "Paquetes",
-    path: "#paquetes",
-  },
-  {
     title: "Contacto",
     path: "#contact",
   },
