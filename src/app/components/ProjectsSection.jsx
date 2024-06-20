@@ -5,6 +5,15 @@ import ProjectTag from "./ProjectTag";
 import { motion, useInView } from "framer-motion";
 
 const projectsData = [
+    {
+    id: 7,
+    title: "JavaScript Integration HTML Website",
+    description: "Tours website for north of Perú",
+    image: "/images/projects/7.png",
+    tag: ["Web"],
+    gitUrl: "/",
+    previewUrl: "https://desarrolloentornoswebcibertec-cii-projects.vercel.app/",
+  },
   {
     id: 1,
     title: "Shopify Portfolio Website",
