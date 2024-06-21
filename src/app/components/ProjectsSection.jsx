@@ -10,7 +10,7 @@ const projectsData = [
     title: "JavaScript Integration HTML Website",
     description: "Tours website for north of Perú",
     image: "/images/projects/7.png",
-    tag: ["Web"],
+    tag: ["All", "Web"],
     gitUrl: "/",
     previewUrl: "https://desarrolloentornoswebcibertec-cii-projects.vercel.app/",
   },
