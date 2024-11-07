@@ -5,9 +5,13 @@ import Image from "next/image"
 import { TypeAnimation } from "react-type-animation"
 import { motion } from "framer-motion"
 import Link from "next/link"
-import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog"
+import {
+  Dialog,
+  DialogContent,
+  DialogTrigger,
+} from "@/components/dialog"
 
-export default function Component() {
+export default function HeroSection() {
   const [buttonText, setButtonText] = useState("Paquetes")
 
   return (
@@ -66,10 +70,10 @@ export default function Component() {
                   </span>
                 </button>
               </DialogTrigger>
-              <DialogContent className="sm:max-w-[90%] h-[90vh]">
+              <DialogContent className="max-w-[90vw] max-h-[90vh] p-0">
                 <iframe
                   src="https://designify-web.vercel.app/"
-                  className="w-full h-full"
+                  className="w-full h-[90vh]"
                   title="Designify Web"
                 />
               </DialogContent>
