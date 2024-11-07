@@ -1,19 +1,12 @@
 "use client"
 
-import React, { useState } from "react"
+import React from "react"
 import Image from "next/image"
 import { TypeAnimation } from "react-type-animation"
 import { motion } from "framer-motion"
 import Link from "next/link"
-import {
-  Dialog,
-  DialogContent,
-  DialogTrigger,
-} from "src/app/components/dialog.tsx"
 
-export default function HeroSection() {
-  const [buttonText, setButtonText] = useState("Paquetes")
-
+export default function Component() {
   return (
     <section className="lg:py-16">
       <div className="grid grid-cols-1 sm:grid-cols-12">
@@ -59,25 +52,14 @@ export default function HeroSection() {
             >
               Contáctame
             </Link>
-            <Dialog>
-              <DialogTrigger asChild>
-                <button
-                  onClick={() => setButtonText("Servicios")}
-                  className="w-[200px] px-1 py-1 rounded-full bg-gradient-to-br from-primary-500 to-secondary-500 hover:bg-slate-800 text-white text-center"
-                >
-                  <span className="block bg-[#121212] hover:bg-slate-800 rounded-full px-5 py-2">
-                    {buttonText}
-                  </span>
-                </button>
-              </DialogTrigger>
-              <DialogContent className="max-w-[90vw] max-h-[90vh] p-0">
-                <iframe
-                  src="https://designify-web.vercel.app/"
-                  className="w-full h-[90vh]"
-                  title="Designify Web"
-                />
-              </DialogContent>
-            </Dialog>
+            <Link
+              href="/#paquetes"
+              className="w-[200px] px-1 py-1 rounded-full bg-gradient-to-br from-primary-500 to-secondary-500 hover:bg-slate-800 text-white text-center"
+            >
+              <span className="block bg-[#121212] hover:bg-slate-800 rounded-full px-5 py-2">
+                Paquetes
+              </span>
+            </Link>
           </div>
         </motion.div>
         <motion.div
