@@ -1,12 +1,15 @@
 "use client"
 
-import React from "react"
+import React, { useState } from "react"
 import Image from "next/image"
 import { TypeAnimation } from "react-type-animation"
 import { motion } from "framer-motion"
 import Link from "next/link"
+import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog"
 
 export default function Component() {
+  const [buttonText, setButtonText] = useState("Paquetes")
+
   return (
     <section className="lg:py-16">
       <div className="grid grid-cols-1 sm:grid-cols-12">
@@ -52,14 +55,25 @@ export default function Component() {
             >
               Contáctame
             </Link>
-            <Link
-              href="/#paquetes"
-              className="w-[200px] px-1 py-1 rounded-full bg-gradient-to-br from-primary-500 to-secondary-500 hover:bg-slate-800 text-white text-center"
-            >
-              <span className="block bg-[#121212] hover:bg-slate-800 rounded-full px-5 py-2">
-                Paquetes
-              </span>
-            </Link>
+            <Dialog>
+              <DialogTrigger asChild>
+                <button
+                  onClick={() => setButtonText("Servicios")}
+                  className="w-[200px] px-1 py-1 rounded-full bg-gradient-to-br from-primary-500 to-secondary-500 hover:bg-slate-800 text-white text-center"
+                >
+                  <span className="block bg-[#121212] hover:bg-slate-800 rounded-full px-5 py-2">
+                    {buttonText}
+                  </span>
+                </button>
+              </DialogTrigger>
+              <DialogContent className="sm:max-w-[90%] h-[90vh]">
+                <iframe
+                  src="https://designify-web.vercel.app/"
+                  className="w-full h-full"
+                  title="Designify Web"
+                />
+              </DialogContent>
+            </Dialog>
           </div>
         </motion.div>
         <motion.div
