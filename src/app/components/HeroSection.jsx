@@ -9,7 +9,7 @@ import {
   Dialog,
   DialogContent,
   DialogTrigger,
-} from "@/components/ui/dialog"
+} from "@/components/dialog"
 
 export default function HeroSection() {
   const [buttonText, setButtonText] = useState("Paquetes")
