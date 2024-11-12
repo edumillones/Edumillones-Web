@@ -5,7 +5,16 @@ import ProjectTag from "./ProjectTag";
 import { motion, useInView } from "framer-motion";
 
 const projectsData = [
-    {
+  {
+    id: 8,
+    title: "Web Audio FFT Analyzer",
+    description: "Monitoreo y análisis de audio",
+    image: "/images/projects/webaudio.png",
+    tag: ["All", "Web", "Mobile"],
+    gitUrl: "https://github.com/edumillones/appaudio",
+    previewUrl: "https://appaudio-edumillones.vercel.app/",
+  },
+  {
     id: 7,
     title: "JavaScript Integration HTML Website",
     description: "Tours website for north of Perú",
