@@ -31,7 +31,7 @@
     "react-dom": "^18.3.1",
     "react-icons": "^4.12.0",
     "react-type-animation": "^3.1.0",
-    "resend": "^1.0.0",
+    "resend": "^4.0.1",
     "tailwindcss": "3.3.3"
   },
   "devDependencies": {
@@ -40,5 +40,8 @@
     "eslint": "^8.0.0",
     "eslint-config-next": "^13.5.6",
     "typescript": "^5.0.0"
+  },
+  "resolutions": {
+    "react-dom": "^18.3.1"
   }
 }
