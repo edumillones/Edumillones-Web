@@ -7,6 +7,8 @@ import Footer from "./components/Footer";
 import PricingSection from "./components/PricingSection";
 import PackageFeatures from "./components/PackageFeatures";
 import FeaturedCard from "./components/FeatureCard";
+import SpotifyWidget from './components/SpotifyWidget';
+
 
 export default function Home() {
   return (
@@ -14,6 +16,7 @@ export default function Home() {
       <Navbar />
       <div className="container mt-24 mx-auto px-12 py-4">
         <HeroSection />
+        <SpotifyWidget />
         <AboutSection />
         <ProjectsSection />
         <EmailSection />

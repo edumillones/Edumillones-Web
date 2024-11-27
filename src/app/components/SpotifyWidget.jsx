@@ -1,5 +1,7 @@
-import { useState, useEffect } from 'react';
-import { getNowPlaying, getTopTracks } from '../lib/spotify';
+"use client";
+
+import React, { useState, useEffect } from 'react';
+import { getNowPlaying, getTopTracks } from '../../lib/spotify';
 
 export default function SpotifyWidget() {
   const [nowPlaying, setNowPlaying] = useState(null);
@@ -12,7 +14,7 @@ export default function SpotifyWidget() {
         const nowPlayingData = await nowPlayingResponse.json();
         setNowPlaying(nowPlayingData);
       }
- 
+
       const topTracksResponse = await getTopTracks();
       if (topTracksResponse.status === 200) {
         const topTracksData = await topTracksResponse.json();
@@ -24,7 +26,7 @@ export default function SpotifyWidget() {
   }, []);
 
   return (
-    (<div className="spotify-widget">
+    <div className="spotify-widget">
       <h2>My Spotify</h2>
       {nowPlaying && (
         <div className="now-playing">
@@ -40,7 +42,7 @@ export default function SpotifyWidget() {
           ))}
         </ul>
       </div>
-    </div>)
+    </div>
   );
 }
 
