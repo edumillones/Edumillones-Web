@@ -1,16 +1,18 @@
-import { NextApiRequest, NextApiResponse } from 'next'
+import { NextResponse } from 'next/server'
 
 const NOW_PLAYING_ENDPOINT = 'https://api.spotify.com/v1/me/player/currently-playing'
 const TOKEN_ENDPOINT = 'https://accounts.spotify.com/api/token'
 
-const getAccessToken = async () => {
+async function getAccessToken() {
   const refresh_token = process.env.SPOTIFY_REFRESH_TOKEN
+  const client_id = process.env.SPOTIFY_CLIENT_ID
+  const client_secret = process.env.SPOTIFY_CLIENT_SECRET
 
   const response = await fetch(TOKEN_ENDPOINT, {
     method: 'POST',
     headers: {
       Authorization: `Basic ${Buffer.from(
-        `${process.env.SPOTIFY_CLIENT_ID}:${process.env.SPOTIFY_CLIENT_SECRET}`
+        `${client_id}:${client_secret}`
       ).toString('base64')}`,
       'Content-Type': 'application/x-www-form-urlencoded',
     },
@@ -20,49 +22,41 @@ const getAccessToken = async () => {
     }),
   })
 
-  return response.json()
+  const data = await response.json()
+  return data.access_token
 }
 
-export default async function handler(
-  req: NextApiRequest,
-  res: NextApiResponse
-) {
-  if (req.method !== 'GET') {
-    return res.status(405).json({ error: 'Method not allowed' })
-  }
-
+export async function GET() {
   try {
-    const { access_token } = await getAccessToken()
+    const access_token = await getAccessToken()
+    console.log('Access token obtenido:', !!access_token)
 
     const response = await fetch(NOW_PLAYING_ENDPOINT, {
       headers: {
         Authorization: `Bearer ${access_token}`,
       },
+      cache: 'no-store',
     })
+    
+    console.log('Status de la respuesta:', response.status)
 
     if (response.status === 204) {
-      return res.status(200).json({ isPlaying: false })
+      console.log('No hay música reproduciéndose')
+      return NextResponse.json({ isPlaying: false })
     }
 
     const data = await response.json()
-    
+    console.log('Datos recibidos:', data)
+
     if (data.error) {
-      return res.status(400).json({ error: data.error })
+      console.error('Error en la respuesta:', data.error)
+      return NextResponse.json({ error: data.error }, { status: 400 })
     }
 
-    const song = {
-      isPlaying: data.is_playing,
-      title: data.item.name,
-      artist: data.item.artists.map((_artist: any) => _artist.name).join(', '),
-      album: data.item.album.name,
-      albumImageUrl: data.item.album.images[0]?.url,
-      songUrl: data.item.external_urls.spotify,
-    }
-
-    return res.status(200).json(song)
+    return NextResponse.json(data)
   } catch (error) {
-    console.error('Error fetching now playing:', error)
-    return res.status(500).json({ error: 'Internal Server Error' })
+    console.error('Error completo:', error)
+    return NextResponse.json({ error: 'Internal Server Error' }, { status: 500 })
   }
 }
 
