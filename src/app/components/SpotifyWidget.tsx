@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useState, useEffect } from 'react';
 import { getNowPlaying, getTopTracks, getPlaylists } from './lib/spotify';
 import { Music, Disc3, ListMusic } from 'lucide-react';
