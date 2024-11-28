@@ -23,6 +23,7 @@
     "express": "^4.21.1",
     "fortawesome": "^0.0.1-security",
     "framer-motion": "^10.16.1",
+    "lucide-react": "^0.462.0",
     "next": "^15.0.3",
     "postcss": "^8.4.32",
     "querystring": "^0.2.1",

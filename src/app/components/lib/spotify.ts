@@ -9,19 +9,24 @@ const TOP_TRACKS_ENDPOINT = 'https://api.spotify.com/v1/me/top/tracks';
 const PLAYLISTS_ENDPOINT = 'https://api.spotify.com/v1/me/playlists';
 
 const getAccessToken = async () => {
-  const response = await fetch(TOKEN_ENDPOINT, {
-    method: 'POST',
-    headers: {
-      Authorization: `Basic ${basic}`,
-      'Content-Type': 'application/x-www-form-urlencoded',
-    },
-    body: new URLSearchParams({
-      grant_type: 'refresh_token',
-      refresh_token: refresh_token!,
-    }),
-  });
+  try {
+    const response = await fetch(TOKEN_ENDPOINT, {
+      method: 'POST',
+      headers: {
+        Authorization: `Basic ${basic}`,
+        'Content-Type': 'application/x-www-form-urlencoded',
+      },
+      body: new URLSearchParams({
+        grant_type: 'refresh_token',
+        refresh_token: refresh_token!,
+      }),
+    });
 
-  return response.json();
+    return response.json();
+  } catch (error) {
+    console.error('Error getting access token:', error);
+    throw error;
+  }
 };
 
 export const getNowPlaying = async () => {
@@ -44,7 +49,7 @@ export const getTopTracks = async () => {
 
 export const getPlaylists = async () => {
   const { access_token } = await getAccessToken();
-  return fetch(PLAYLISTS_ENDPOINT, {
+  return fetch(`${PLAYLISTS_ENDPOINT}?limit=6`, {
     headers: {
       Authorization: `Bearer ${access_token}`,
     },
