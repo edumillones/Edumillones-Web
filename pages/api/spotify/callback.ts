@@ -3,7 +3,8 @@ import { NextApiRequest, NextApiResponse } from 'next'
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   const client_id = process.env.SPOTIFY_CLIENT_ID
   const client_secret = process.env.SPOTIFY_CLIENT_SECRET
-  const redirect_uri = 'https://designify-web-7aeb-8kd1glt5b-designify.vercel.app/api/spotify/callback'
+  // Use the exact same redirect URI as in auth.ts
+  const redirect_uri = 'https://edumillones.vercel.app/api/spotify/callback'
   
   const code = req.query.code
 
@@ -28,7 +29,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     const data = await response.json()
 
     if (response.ok) {
-      // Muestra el refresh token de manera segura
       res.setHeader('Content-Type', 'text/html')
       res.send(`
         <!DOCTYPE html>
