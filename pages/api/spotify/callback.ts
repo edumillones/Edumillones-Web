@@ -1,13 +1,14 @@
 import { NextApiRequest, NextApiResponse } from 'next'
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-  const code = req.query.code
   const client_id = process.env.SPOTIFY_CLIENT_ID
   const client_secret = process.env.SPOTIFY_CLIENT_SECRET
-  const redirect_uri = `${process.env.VERCEL_URL}/api/spotify/callback`
+  const redirect_uri = 'https://designify-web-7aeb-8kd1glt5b-designify.vercel.app/api/spotify/callback'
+  
+  const code = req.query.code
 
-  if (typeof code !== 'string') {
-    return res.status(400).json({ error: 'Invalid code' })
+  if (!code || typeof code !== 'string') {
+    return res.status(400).json({ error: 'Missing code' })
   }
 
   try {
@@ -27,7 +28,40 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     const data = await response.json()
 
     if (response.ok) {
-      res.status(200).json({ refresh_token: data.refresh_token })
+      // Muestra el refresh token de manera segura
+      res.setHeader('Content-Type', 'text/html')
+      res.send(`
+        <!DOCTYPE html>
+        <html>
+          <head>
+            <title>Spotify Refresh Token</title>
+            <style>
+              body {
+                font-family: system-ui, sans-serif;
+                max-width: 600px;
+                margin: 40px auto;
+                padding: 20px;
+                line-height: 1.6;
+              }
+              .token {
+                background: #f1f1f1;
+                padding: 20px;
+                border-radius: 4px;
+                word-break: break-all;
+                margin: 20px 0;
+              }
+            </style>
+          </head>
+          <body>
+            <h1>🎉 ¡Autenticación Exitosa!</h1>
+            <p>Tu refresh token es:</p>
+            <div class="token">
+              <code>${data.refresh_token}</code>
+            </div>
+            <p>Guarda este token en tus variables de entorno de Vercel como SPOTIFY_REFRESH_TOKEN</p>
+          </body>
+        </html>
+      `)
     } else {
       res.status(response.status).json(data)
     }
