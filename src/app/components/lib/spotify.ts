@@ -22,7 +22,8 @@ const getAccessToken = async () => {
       }),
     });
 
-    return response.json();
+    const data = await response.json();
+    return data.access_token;
   } catch (error) {
     console.error('Error getting access token:', error);
     throw error;
@@ -30,7 +31,8 @@ const getAccessToken = async () => {
 };
 
 export const getNowPlaying = async () => {
-  const { access_token } = await getAccessToken();
+  const access_token = await getAccessToken();
+  
   return fetch(NOW_PLAYING_ENDPOINT, {
     headers: {
       Authorization: `Bearer ${access_token}`,
@@ -39,7 +41,8 @@ export const getNowPlaying = async () => {
 };
 
 export const getTopTracks = async () => {
-  const { access_token } = await getAccessToken();
+  const access_token = await getAccessToken();
+  
   return fetch(`${TOP_TRACKS_ENDPOINT}?time_range=short_term&limit=5`, {
     headers: {
       Authorization: `Bearer ${access_token}`,
@@ -48,7 +51,8 @@ export const getTopTracks = async () => {
 };
 
 export const getPlaylists = async () => {
-  const { access_token } = await getAccessToken();
+  const access_token = await getAccessToken();
+  
   return fetch(`${PLAYLISTS_ENDPOINT}?limit=6`, {
     headers: {
       Authorization: `Bearer ${access_token}`,
