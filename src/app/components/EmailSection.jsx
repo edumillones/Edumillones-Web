@@ -32,7 +32,7 @@ export default function EmailSection() {
           <Link href="https://www.instagram.com/designify.pe/">
             <Image src={InstagramIcon} alt="Instagram Icon" className="w-12 h-12" />
           </Link>
-          <Link href="https://wa.me/51942538945">
+          <Link href="https://wa.me/+777">
             <Image src={WhatsappIcon} alt="WhatsApp Icon" className="w-12 h-12" />
           </Link>
         </div>
