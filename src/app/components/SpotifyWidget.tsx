@@ -31,6 +31,7 @@ export default function SpotifyWidget() {
   const [topTracks, setTopTracks] = useState<Track[]>([])
   const [playlists, setPlaylists] = useState<Playlist[]>([])
   const [loading, setLoading] = useState(true)
+  const [error, setError] = useState<string | null>(null)
 
   const formatDuration = (ms: number) => {
     const minutes = Math.floor(ms / 60000)
@@ -38,28 +39,35 @@ export default function SpotifyWidget() {
     return `${minutes}:${seconds.toString().padStart(2, '0')}`
   }
 
+  const fetchWithHandler = async (url: string) => {
+    try {
+      const res = await fetch(url)
+      if (!res.ok) throw new Error(`Error ${res.status}`)
+      return await res.json()
+    } catch (err) {
+      console.error(`Error fetching ${url}:`, err)
+      return null
+    }
+  }
+
   useEffect(() => {
     async function fetchData() {
       try {
         setLoading(true)
+        setError(null)
         
-        const [nowPlayingRes, topTracksRes, playlistsRes] = await Promise.all([
-          fetch('/api/spotify/now-playing'),
-          fetch('/api/spotify/top-tracks'),
-          fetch('/api/spotify/playlists'),
-        ])
-
         const [nowPlayingData, topTracksData, playlistsData] = await Promise.all([
-          nowPlayingRes.json(),
-          topTracksRes.json(),
-          playlistsRes.json(),
+          fetchWithHandler('/api/spotify/now-playing'),
+          fetchWithHandler('/api/spotify/top-tracks'),
+          fetchWithHandler('/api/spotify/playlists'),
         ])
 
-        setNowPlaying(nowPlayingData)
-        setTopTracks(topTracksData.items || [])
-        setPlaylists((playlistsData.items || []).filter((playlist: Playlist) => playlist.public))
+        setNowPlaying(nowPlayingData?.isPlaying ? nowPlayingData : null)
+        setTopTracks(topTracksData?.items || [])
+        setPlaylists((playlistsData?.items || []).filter((playlist: Playlist) => playlist.public))
       } catch (error) {
-        console.error('Error fetching Spotify data:', error)
+        console.error('Error general:', error)
+        setError('Error al cargar datos de Spotify')
       } finally {
         setLoading(false)
       }
@@ -78,6 +86,14 @@ export default function SpotifyWidget() {
     )
   }
 
+  if (error) {
+    return (
+      <div className="text-center py-8 text-red-400">
+        {error} - Recarga la página para intentar de nuevo
+      </div>
+    )
+  }
+
   return (
     <div className="w-full max-w-7xl mx-auto p-4 md:p-6 mt-8">
       <div className="text-center mb-8">
@@ -90,7 +106,7 @@ export default function SpotifyWidget() {
       </div>
 
       <div className="grid grid-cols-1 gap-6">
-        {/* Now Playing Section */}
+        {/* Sección Reproduciendo Ahora */}
         <div className="bg-gradient-to-br from-purple-900/40 to-pink-900/40 rounded-xl p-6 backdrop-blur-sm border border-purple-500/20">
           <div className="flex items-center gap-2 mb-4">
             <Music className="w-5 h-5 text-purple-400" />
@@ -105,7 +121,7 @@ export default function SpotifyWidget() {
             >
               <div className="flex items-center space-x-4 hover:bg-white/5 p-3 rounded-lg transition-all">
                 <img
-                  src={nowPlaying.item.album.images[0].url}
+                  src={nowPlaying.item.album.images[0]?.url}
                   alt={nowPlaying.item.name}
                   className="w-24 h-24 rounded-lg shadow-lg group-hover:shadow-purple-500/20"
                 />
@@ -113,7 +129,7 @@ export default function SpotifyWidget() {
                   <p className="text-lg font-medium text-white group-hover:text-purple-400 transition-colors">
                     {nowPlaying.item.name}
                   </p>
-                  <p className="text-purple-300">{nowPlaying.item.artists[0].name}</p>
+                  <p className="text-purple-300">{nowPlaying.item.artists[0]?.name}</p>
                 </div>
               </div>
             </a>
@@ -122,7 +138,7 @@ export default function SpotifyWidget() {
           )}
         </div>
 
-        {/* Top Tracks Section */}
+        {/* Sección Top Canciones */}
         <div className="bg-gradient-to-br from-purple-900/40 to-pink-900/40 rounded-xl p-6 backdrop-blur-sm border border-purple-500/20">
           <div className="flex items-center gap-2 mb-4">
             <Disc3 className="w-5 h-5 text-purple-400" />
@@ -139,7 +155,7 @@ export default function SpotifyWidget() {
               >
                 <span className="text-purple-400 font-medium w-6">{index + 1}</span>
                 <img
-                  src={track.album.images[2].url}
+                  src={track.album.images[2]?.url}
                   alt={track.name}
                   className="w-12 h-12 rounded shadow-lg group-hover:shadow-purple-500/20"
                 />
@@ -147,7 +163,7 @@ export default function SpotifyWidget() {
                   <p className="text-white font-medium truncate group-hover:text-purple-400 transition-colors">
                     {track.name}
                   </p>
-                  <p className="text-purple-300 text-sm truncate">{track.artists[0].name}</p>
+                  <p className="text-purple-300 text-sm truncate">{track.artists[0]?.name}</p>
                 </div>
                 <span className="text-purple-300 text-sm">
                   {formatDuration(track.duration_ms)}
@@ -157,7 +173,7 @@ export default function SpotifyWidget() {
           </div>
         </div>
 
-        {/* Public Playlists Section */}
+        {/* Sección Playlists Públicas */}
         <div className="bg-gradient-to-br from-purple-900/40 to-pink-900/40 rounded-xl p-6 backdrop-blur-sm border border-purple-500/20">
           <div className="flex items-center gap-2 mb-4">
             <ListMusic className="w-5 h-5 text-purple-400" />
@@ -174,7 +190,7 @@ export default function SpotifyWidget() {
               >
                 <div className="space-y-2 hover:bg-white/5 p-3 rounded-lg transition-all">
                   <img
-                    src={playlist.images[0]?.url}
+                    src={playlist.images[0]?.url || '/default-playlist.png'}
                     alt={playlist.name}
                     className="w-full aspect-square rounded-lg shadow-lg object-cover group-hover:shadow-purple-500/20"
                   />
@@ -190,4 +206,3 @@ export default function SpotifyWidget() {
     </div>
   )
 }
-
