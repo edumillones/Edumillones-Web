@@ -2,13 +2,13 @@ import { NextApiRequest, NextApiResponse } from 'next'
 
 export default function handler(req: NextApiRequest, res: NextApiResponse) {
   const CLIENT_ID = process.env.SPOTIFY_CLIENT_ID
-  const REDIRECT_URI = `https://designify-web-7aeb-myzziz8xs-designify.vercel.app/api/spotify/callback`
+  const REDIRECT_URI = process.env.SPOTIFY_REDIRECT_URI
 
-  if (!CLIENT_ID) {
-    return res.status(500).json({ error: 'Missing Spotify client ID' })
+  if (!CLIENT_ID || !REDIRECT_URI) {
+    return res.status(500).json({ error: 'Configuración de Spotify incompleta' })
   }
 
-  const scope = 'user-read-currently-playing user-top-read'
+  const scope = 'user-read-currently-playing user-top-read playlist-read-public'
   
   const params = new URLSearchParams({
     response_type: 'code',
@@ -19,4 +19,3 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
 
   res.redirect(`https://accounts.spotify.com/authorize?${params.toString()}`)
 }
-
