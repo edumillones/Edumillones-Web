@@ -1,7 +1,10 @@
-'use client'
+"use client"
 
-import { useState, useEffect } from 'react'
-import { Music, Disc3, ListMusic } from 'lucide-react'
+import { useState, useEffect } from "react"
+import { Music, Disc3, ListMusic } from "lucide-react"
+import Slider from "react-slick"
+import "slick-carousel/slick/slick.css"
+import "slick-carousel/slick/slick-theme.css"
 
 type Track = {
   id: string
@@ -26,6 +29,60 @@ type Playlist = {
   public: boolean
 }
 
+const PlaylistSlider = ({ playlists }: { playlists: Playlist[] }) => {
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 4,
+    slidesToScroll: 2,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 2,
+        },
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
+  }
+
+  return (
+    <Slider {...settings} className="px-2 py-4">
+      {playlists.map((playlist) => (
+        <div key={playlist.id} className="px-2">
+          <a href={playlist.external_urls.spotify} target="_blank" rel="noopener noreferrer" className="group block">
+            <div className="space-y-2 hover:bg-white/5 p-3 rounded-lg transition-all">
+              <img
+                src={playlist.images[0]?.url || "/default-playlist.png"}
+                alt={playlist.name}
+                className="w-full aspect-square rounded-lg shadow-lg object-cover group-hover:shadow-purple-500/20"
+              />
+              <p className="text-white font-medium truncate text-sm group-hover:text-purple-400 transition-colors">
+                {playlist.name}
+              </p>
+            </div>
+          </a>
+        </div>
+      ))}
+    </Slider>
+  )
+}
+
 export default function SpotifyWidget() {
   const [nowPlaying, setNowPlaying] = useState<any>(null)
   const [topTracks, setTopTracks] = useState<Track[]>([])
@@ -36,7 +93,7 @@ export default function SpotifyWidget() {
   const formatDuration = (ms: number) => {
     const minutes = Math.floor(ms / 60000)
     const seconds = Math.floor((ms % 60000) / 1000)
-    return `${minutes}:${seconds.toString().padStart(2, '0')}`
+    return `${minutes}:${seconds.toString().padStart(2, "0")}`
   }
 
   const fetchWithHandler = async (url: string) => {
@@ -55,19 +112,19 @@ export default function SpotifyWidget() {
       try {
         setLoading(true)
         setError(null)
-        
+
         const [nowPlayingData, topTracksData, playlistsData] = await Promise.all([
-          fetchWithHandler('/api/spotify/now-playing'),
-          fetchWithHandler('/api/spotify/top-tracks'),
-          fetchWithHandler('/api/spotify/playlists'),
+          fetchWithHandler("/api/spotify/now-playing"),
+          fetchWithHandler("/api/spotify/top-tracks"),
+          fetchWithHandler("/api/spotify/playlists"),
         ])
 
         setNowPlaying(nowPlayingData?.isPlaying ? nowPlayingData : null)
         setTopTracks(topTracksData?.items || [])
         setPlaylists((playlistsData?.items || []).filter((playlist: Playlist) => playlist.public))
       } catch (error) {
-        console.error('Error general:', error)
-        setError('Error al cargar datos de Spotify')
+        console.error("Error general:", error)
+        setError("Error al cargar datos de Spotify")
       } finally {
         setLoading(false)
       }
@@ -76,7 +133,7 @@ export default function SpotifyWidget() {
     fetchData()
     const interval = setInterval(fetchData, 30000)
     return () => clearInterval(interval)
-  }, [])
+  }, [fetchWithHandler]) // Added fetchWithHandler to dependencies
 
   if (loading) {
     return (
@@ -87,11 +144,7 @@ export default function SpotifyWidget() {
   }
 
   if (error) {
-    return (
-      <div className="text-center py-8 text-red-400">
-        {error} - Recarga la página para intentar de nuevo
-      </div>
-    )
+    return <div className="text-center py-8 text-red-400">{error} - Recarga la página para intentar de nuevo</div>
   }
 
   return (
@@ -100,9 +153,7 @@ export default function SpotifyWidget() {
         <h2 className="text-4xl font-bold bg-gradient-to-r from-purple-400 to-pink-500 bg-clip-text text-transparent mb-4">
           Mi Música en Tiempo Real
         </h2>
-        <p className="text-purple-300 text-lg">
-          Descubre lo que estoy escuchando y mis canciones favoritas 🎵
-        </p>
+        <p className="text-purple-300 text-lg">Descubre lo que estoy escuchando y mis canciones favoritas 🎵</p>
       </div>
 
       <div className="grid grid-cols-1 gap-6">
@@ -121,7 +172,7 @@ export default function SpotifyWidget() {
             >
               <div className="flex items-center space-x-4 hover:bg-white/5 p-3 rounded-lg transition-all">
                 <img
-                  src={nowPlaying.item.album.images[0]?.url}
+                  src={nowPlaying.item.album.images[0]?.url || "/placeholder.svg"}
                   alt={nowPlaying.item.name}
                   className="w-24 h-24 rounded-lg shadow-lg group-hover:shadow-purple-500/20"
                 />
@@ -155,7 +206,7 @@ export default function SpotifyWidget() {
               >
                 <span className="text-purple-400 font-medium w-6">{index + 1}</span>
                 <img
-                  src={track.album.images[2]?.url}
+                  src={track.album.images[2]?.url || "/placeholder.svg"}
                   alt={track.name}
                   className="w-12 h-12 rounded shadow-lg group-hover:shadow-purple-500/20"
                 />
@@ -165,9 +216,7 @@ export default function SpotifyWidget() {
                   </p>
                   <p className="text-purple-300 text-sm truncate">{track.artists[0]?.name}</p>
                 </div>
-                <span className="text-purple-300 text-sm">
-                  {formatDuration(track.duration_ms)}
-                </span>
+                <span className="text-purple-300 text-sm">{formatDuration(track.duration_ms)}</span>
               </a>
             ))}
           </div>
@@ -179,30 +228,10 @@ export default function SpotifyWidget() {
             <ListMusic className="w-5 h-5 text-purple-400" />
             <h3 className="text-xl font-semibold text-white">Mis Playlists</h3>
           </div>
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
-            {playlists.map((playlist) => (
-              <a
-                key={playlist.id}
-                href={playlist.external_urls.spotify}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group"
-              >
-                <div className="space-y-2 hover:bg-white/5 p-3 rounded-lg transition-all">
-                  <img
-                    src={playlist.images[0]?.url || '/default-playlist.png'}
-                    alt={playlist.name}
-                    className="w-full aspect-square rounded-lg shadow-lg object-cover group-hover:shadow-purple-500/20"
-                  />
-                  <p className="text-white font-medium truncate text-sm group-hover:text-purple-400 transition-colors">
-                    {playlist.name}
-                  </p>
-                </div>
-              </a>
-            ))}
-          </div>
+          <PlaylistSlider playlists={playlists} />
         </div>
       </div>
     </div>
   )
 }
+
