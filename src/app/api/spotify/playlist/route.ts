@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server'
-import { getAccessToken } from '@/lib/spotify-auth'
+import { getAccessToken } from '../../.././lib/spotify-auth.js'
 
 export async function GET() {
   try {
